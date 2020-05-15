@@ -10,19 +10,28 @@
 
 using namespace std;
 
+class List;
+
 class Parameter {
 private:
 	string headline;
 	int value ;
 	string unit;
     bool edit_mode ;
+    List *list;
+
+    uint8_t has_sub_list = false;
+
 public:
 	Parameter(string, int, string, bool ) ;
 	bool if_changeable_value ;
 	void sendToDisplay() ;
 	Interface_Element::Action getButton(Interface_Element::Button) ;
 	void sendErrorNoChangeable() ;
-	//string getHeadLine();
+
+	void createList();
+	void addToSubList(Parameter *p);
+	string getHeadLine();
 };
 
 

@@ -22,6 +22,6 @@ public :
     void moveLeft() ;
     uint16_t getSize() ;
 
-   // void print();
+    void print();
 };
 #endif /* LIST_h_ */

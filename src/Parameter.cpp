@@ -1,4 +1,7 @@
 #include "Parameter.h"
+#include "List.h"
+
+#define DEBUG
 
 Parameter::Parameter(string h, int v, string u , bool ch ){
 	headline = h;
@@ -6,7 +9,24 @@ Parameter::Parameter(string h, int v, string u , bool ch ){
 	unit = u ;
 	if_changeable_value = ch;
 	edit_mode = 0 ;
+
+
 }
+
+void Parameter::createList(){
+	if(has_sub_list == false){
+		list = new List();
+		has_sub_list = true;
+	}
+}
+
+void Parameter::addToSubList(Parameter *p){
+	if(has_sub_list){
+		list->addParameter(p);
+	}
+}
+
+
 
 void Parameter::sendToDisplay()
 {
@@ -14,6 +34,18 @@ void Parameter::sendToDisplay()
 
 	cout << headline << endl;
 	cout << value << " " << unit ;
+
+#ifdef DEBUG
+	cout << endl << endl;
+	if(has_sub_list){
+		cout << "This parameter has sub list" << endl;
+		list->print();
+	} else {
+		cout << "This parameter has no sub list" << endl;
+	}
+#endif
+
+
 }
 void Parameter::sendErrorNoChangeable(){
 
@@ -54,8 +86,8 @@ Interface_Element::Action Parameter::getButton(Interface_Element::Button button)
     }
 }
 
-/*
+
 string Parameter::getHeadLine(){
 	return this->headline;
 }
-*/
+

@@ -78,17 +78,17 @@ void List::addParameter(Parameter *parameter){
 Parameter* List::getParameter(){
     return current_element->getCurrentParameter() ;
 }
-/*
+
 void List::print(){
 	cout << "Rozmiar listy: " << size << endl;
 	List_element *printing_element = first_element;
 	for(int i = 0; i <size; i++){
 		cout << "element: " << i << endl;
-		printing_element->print();
-		printing_element = printing_element->next;
+		cout << printing_element->getCurrentParameter()->getHeadLine() << endl;
+		printing_element = printing_element->getNextPointer();
 	}
 }
-*/
+
 
 uint16_t List::getSize(){
     return size ;
