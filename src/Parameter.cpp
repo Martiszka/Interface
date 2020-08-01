@@ -5,7 +5,7 @@
 #define EDIT_MODE_TIME 10
 #define ERROR_TIME 10
 
-Parameter::Parameter(string h, int v, string u , uint8_t ch ){
+Parameter::Parameter(string h, uint16_t v, string u , uint8_t ch ){
 	headline = h;
 	value = v ;
 	unit = u ;
@@ -173,11 +173,22 @@ void Parameter::closeLastOpenSubList(){
           setOutOfSubList() ;
     }
 }
-
 void Parameter::setAsBackParameter(){
     back_from_sub_list = true ;
 }
+
 uint8_t Parameter::isBackParameter(){
     return back_from_sub_list ;
 }
-
+uint8_t Parameter::isCountingNoChangeableError(){
+    return no_changeable_error_counting ;
+}
+uint8_t Parameter::isValueVisible(){
+    return visible_value ;
+}
+uint16_t Parameter::getValue(){
+    return value ;
+}
+string Parameter::getUnit(){
+    return unit ;
+}

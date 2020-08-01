@@ -14,7 +14,7 @@ class List;
 class Parameter {
 private:
 	string headline;
-	int value ;
+	uint16_t value ;
 	string unit;
     uint8_t edit_mode ;
     List *list;
@@ -30,7 +30,7 @@ private:
     uint8_t start_counting_no_changeable_error = false ;
 
 public:
-	Parameter(string, int = 0 , string = "" , uint8_t = false ) ;
+	Parameter(string, uint16_t = 0 , string = "" , uint8_t = false ) ;
 	void sendToDisplay() ;
 	Interface_Element::Action getButton(Interface_Element::Button) ;
 	void sendErrorNoChangeable() ;
@@ -49,6 +49,10 @@ public:
 	uint8_t isBackParameter() ;
 	void addBackParameterToList() ;
 	void closeLastOpenSubList() ;
+    uint16_t getValue() ;
+	uint8_t isCountingNoChangeableError() ;
+	string getUnit() ;
+	uint8_t isValueVisible();
 
 };
 
