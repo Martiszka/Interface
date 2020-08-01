@@ -31,7 +31,6 @@ private:
 
 public:
 	Parameter(string, uint16_t = 0 , string = "" , uint8_t = false ) ;
-	void sendToDisplay() ;
 	Interface_Element::Action getButton(Interface_Element::Button) ;
 	void sendErrorNoChangeable() ;
     Parameter* getParametr();
@@ -53,7 +52,6 @@ public:
 	uint8_t isCountingNoChangeableError() ;
 	string getUnit() ;
 	uint8_t isValueVisible();
-
 };
 
 

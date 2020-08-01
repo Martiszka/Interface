@@ -115,7 +115,6 @@ void List::print(){
 	}
 }
 
-
 uint16_t List::getSize(){
     return size ;
 }

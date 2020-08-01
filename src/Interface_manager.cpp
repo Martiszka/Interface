@@ -46,6 +46,7 @@ Interface_Element::Button Interface_manager::readKey(){
 void Interface_manager::display(){
 
     system("cls");
+
     if( Ssd_1306->isNoChangeableErrorCounting() ){
         cout <<"No change" << endl ;
         cout <<"possible" ;

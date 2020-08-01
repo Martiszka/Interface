@@ -38,11 +38,6 @@ void Interface::sendAction(Interface_Element::Button button){
             break ;
 	}
 }
-/*
-void Interface::display(){
-    list_of_elements->getParameter()->sendToDisplay();
-}
-*/
 void Interface::displayError(){
     list_of_elements->getParameter()->sendErrorNoChangeable() ;
 }

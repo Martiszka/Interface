@@ -1,6 +1,5 @@
 #include "Parameter.h"
 #include "List.h"
-//#define DEBUG
 #include <windows.h>
 #define EDIT_MODE_TIME 10
 #define ERROR_TIME 10
@@ -41,41 +40,6 @@ uint8_t Parameter::ifInSubList(){
     return in_sub_list ;
 }
 
-void Parameter::sendToDisplay()
-{
-    system("cls");
-
-    if( no_changeable_error_counting ){
-        cout <<"No change" << endl ;
-        cout <<"possible" ;
-    }
-    else{
-        cout << headline << endl;
-        if( !back_from_sub_list && !has_sub_list){
-            if( visible_value )
-                cout << value << " " << unit ;
-            else{
-                for( int i = value ; i > 0 ; i /= 10)
-                    cout <<" ";
-                cout << " " << unit ;
-            }
-        }
-    }
-
-
-#ifdef DEBUG
-	cout << endl << endl;
-	if(has_sub_list){
-		cout << "This parameter has sub list" << endl;
-		list->print();
-	} else {
-		cout << "This parameter has no sub list" << endl;
-	}
-
-#endif
-
-
-}
 void Parameter::refreshEditMode(){
     if(edit_mode){
         edit_mode_counting++ ;
